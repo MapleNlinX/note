@@ -9,6 +9,7 @@ local RecycleScroller = class("RecycleScroller")
         topSpace: 顶部留空（选填）
         bottomSpace: 底部留空（选填）
         cacheLoadLength: 提前多少距离开始预加载，当大小覆盖总长时即一次性全部显加载消除停顿，但会增加初次加载时间（选填）
+        cacheLoadMaxCount：预加载最大次数，默认为 1，建议不改，如果需要预加载就一次性全部加载不然意义不大（选填）
         cacheShowLength: 提前多少距离开始预显示，可减弱快速滑动时刷新不及时的情况，但会增加显示的cell（选填）
         initialContentSizeLength: 预设容器大小，如果设置成最终的大小效果最佳，如果太小会增加停顿次数（选填，建议设置成最终的大小）
         coefficient: 当内容大小超出容器大小时，扩展容器大小的系数（选填）
@@ -17,7 +18,7 @@ local RecycleScroller = class("RecycleScroller")
         onScrollToEnd: 滑动到最底部时触发的回调（选填）
         onScrollMove: 滑动时触发的回调（选填）
         isVerticalOptimize:垂直滚动时优化，开启可有效避免滚动时候扩展前回滚导致的停顿，缺点是获取centent垂直的percent会不正确,要使用getVerticalPercent获取（选填）
-        verticalOptimizeLength:在isVerticalOptimize启用的情况下，提前多少距离开始扩展content（选填）
+        preExtendContentLength:提前多少距离开始扩展content,防止刷新间回弹（选填）
     }
 
     -- cell数据和配置参数
@@ -54,13 +55,14 @@ function RecycleScroller:ctor(params)
     self._topSpace = params.topSpace or 0
     self._bottomSpace = params.bottomSpace or 0
     self._cacheLoadLength = params.cacheLoadLength or 0
+    self._cacheLoadMaxCount = params.cacheLoadMaxCount or 1
     self._cacheShowLength = params.cacheShowLength or 0
     self._initialContentSizeLength = params.initialContentSizeLength or 10000
     self._isNeedDispose = params.isNeedDispose == nil and true or params.isNeedDispose
     self._coefficient = params.coefficient or 2
     self._refreshDelay = params.refreshDelay or 0.05
     self._isVerticalOptimize = params.isVerticalOptimize == nil and true or params.isVerticalOptimize
-    self._verticalOptimizeLength = params.verticalOptimizeLength or 1000
+    self._preExtendContentLength = params.preExtendContentLength or 1000
     self._dividePieces = params.dividePieces or 10
     self._onScrollToEnd = params.onScrollToEnd
     self._onScrollMove = params.onScrollMove
@@ -70,14 +72,20 @@ function RecycleScroller:ctor(params)
         print("invalid coefficient :" .. self._coefficient)
         self._coefficient = 2
     end
-    if self._verticalOptimizeLength < 0 then
-        print("invalid verticalOptimizeLength :" .. self._coefficient)
-        self._verticalOptimizeLength = 0
+    if self._preExtendContentLength < 0 then
+        print("invalid preExtendContentLength :" .. self._preExtendContentLength)
+        self._preExtendContentLength = 0
     end
     if self._dividePieces < 1 then
         print("invalid dividePieces :" .. self._dividePieces)
         self._dividePieces = 1
     end
+    if self._cacheShowLength > self._cacheLoadLength then
+        -- 预显示比预加载还大则不需要预加载
+        self._cacheLoadMaxCount = 0
+    end
+
+    self._dataParams = {}
 end
 
 function RecycleScroller:init()
@@ -131,6 +139,7 @@ function RecycleScroller:_initLibrary(isInit)
         self._path2RecyclePoolMap = {}
     end
     self._totalCellLength = 0
+    self._cacheLoadCount = 0
 end
 
 function RecycleScroller:jumpToStart(isIntercept)
@@ -156,7 +165,7 @@ function RecycleScroller:setInitialContentSizeLength(length)
 end
 
 function RecycleScroller:setDatas(dataParams)
-    if self._dataParams then
+    if self._dataParams and #self._dataParams > 0 then
         -- 重新设置数据
         self:_recycleAllCell()
         self:_initLibrary(false)
@@ -226,11 +235,12 @@ function RecycleScroller:refreshScrollView()
     local isHasCreate = false
     local isOverShow = false
     local isFinishPreload = #self._indexToPos == #self._dataParams
+    local cacheLoadLength = 0
     for index = startIndex, #self._dataParams do
         local pos = self._indexToPos[index]
         local cell = self._indexToShowingCell[index]
         if pos then
-            if not cell and self:_checkIsNeedShow(index, start, over) then
+            if not isOverShow and not cell and self:_checkIsNeedShow(index, start, over) then
                 local nodeCell = self:_dequeueCell(index)
                 nodeCell:setPosition(pos)
             end
@@ -241,8 +251,13 @@ function RecycleScroller:refreshScrollView()
         if not isOverShow and self._indexToTotalLength[index] + self._topSpace >= endLength then
             -- 已显示到底边,不需要再显示
             isOverShow = true
+            if index == #self._indexToPos then
+                -- 已达滚动底部，刷新预加载
+                self._cacheLoadCount = math.min(self._cacheLoadCount + 1,self._cacheLoadMaxCount)
+                cacheLoadLength = self._cacheLoadLength * (math.min(self._cacheLoadCount,self._cacheLoadMaxCount))
+            end
         end
-        if isOverShow and not isFinishPreload and self._totalCellLength + self._topSpace >= endLength + self._cacheLoadLength then
+        if isOverShow and not isFinishPreload and self._totalCellLength + self._topSpace >= endLength + cacheLoadLength then
             -- 已预加载完成,不需要新增
             isFinishPreload = true
         end
@@ -459,20 +474,32 @@ function RecycleScroller:_dequeueCell(index)
     return cell
 end
 
-function RecycleScroller:_checkVerticalOptimize()
+function RecycleScroller:_preExtendContent()
     -- 避免在滚动过程中 ，需要扩展content但是还没扩展，引起回弹，影响体验，所以提前检测并扩展
     if #self._indexToPos == #self._dataParams then
         return
     end
     local contentSize = self._content:getContentSize()
-    local posY = self._content:getPositionY()
-    if contentSize.height - posY <= self._verticalOptimizeLength then
-        while contentSize.height - posY <= self._verticalOptimizeLength do
-            contentSize.height = contentSize.height * self._coefficient
+    if self._isVertical then
+        if not self._isVerticalOptimiz then return end -- 如果垂直滚动没开启优化则会在扩展时使用scrollToPercentVertical，所以不用预扩展
+        local posY = self._content:getPositionY()
+        if contentSize.height - posY <= self._preExtendContentLength then
+            while contentSize.height - posY <= self._preExtendContentLength do
+                contentSize.height = contentSize.height * self._coefficient
+            end
+            self._content:setContentSize(contentSize)
+            self._cellContentNode:setPositionY(contentSize.height)
         end
-        self._content:setContentSize(contentSize)
-        self._cellContentNode:setPositionY(contentSize.height)
+    else
+        local posX = self._content:getPositionX()
+        if contentSize.width + posX <= self._preExtendContentLength then
+            while contentSize.width + posX <= self._preExtendContentLength do
+                contentSize.width = contentSize.width * self._coefficient
+            end
+            self._content:setContentSize(contentSize)
+        end
     end
+    
 end
 
 function RecycleScroller:_onListenerFunc(sender, evenType)
@@ -480,9 +507,7 @@ function RecycleScroller:_onListenerFunc(sender, evenType)
         if self.isIntercept then
             return
         end
-        if self._isVertical and self._isVerticalOptimize then
-            self:_checkVerticalOptimize()
-        end
+        self:_preExtendContent()
         if self.isRefreshing then
             self.delayRefresh = true
         else
