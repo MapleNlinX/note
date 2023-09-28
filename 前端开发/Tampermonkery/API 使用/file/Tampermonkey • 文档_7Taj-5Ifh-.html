@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.tampermonkey.net/documentation.php -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+         <meta property="og:title" content="Tampermonkey • 文档">
+         <meta property="og:image" content="https://tampermonkey.freetls.fastly.net/images/tampermonkey_574.png">
+         <meta property="og:url" content="http://www.tampermonkey.net">
+         <meta property="og:description" content="Tampermonkey is a free browser extension and the most popular userscript manager. It&#39;s available for Chrome, Microsoft Edge, Safari, Opera Next, and Firefox. Even though some of the supported browsers have native userscript support, Tampermonkey will give you much more convenience in managing your userscripts. It provides features like easy script installation, automatic update checks, a simple overview what scripts are running at a tab, a built-in editor and there is a good chance that incompatible scripts run fine with Tampermonkey. So give it a try!">
+         <title>Tampermonkey • 文档</title>
+
+         <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4wsBDyUWhBO3cwAAA0FJREFUWMPtl79O21AUxu+JPQQbR7WQErXqEBgTVIwqVZUi4b2K0xdosvAIfQbYu/ACCJQlI6FMllBVQiQaaAJSqmJ1aBXGMEWOff11uaauyR/UQsvAlc5i+dzvd8/1vf4OY/dtACgC2AEwwO2NAYD3AKxJwkkAmwBg23bXMIymoih9IgJj7I+CiKAoSn9paalp23ZXwGwCSI4C2OSc+6VS6YCIgj8VnQATWJZ1wDn3AWyOKjssyzq4beF4WJZ1ICpRjALs2LbdvYuVj6qE2I6dKMDAMIzmXYuHYRhGE8AgCgBFUfr/CkBRlD4AMMYYhQCJRIKJZ3c+iIgFQcCIiBKRKvwT8bhW4i/muZXxAPAAcP8BZFkeqqp6Kcuyf9NJJUnyUqnUpSzL7o0SxK30W8zPz7fr9XrH930fAFzXHW5vb7cymcwXNuaGS6fT3Wq12nJddwgAvu/7e3t7nYWFhVb8XUQvgzhAuVxuBEEAAIcAXgN4CqAC4MzzPL9QKDTiExYKhYbneT6AMwBvADwRf9kPALC6utq8EUAulzsSv8sNAFKsUkkANc/z/HQ63Q1zMpnMFyFei5sNABKAdwCwuLh4NBXg+PjYAbAfF49BnFWr1U9hztbW1hGA7kin8wvCbrfb30KHNRJA07QLsfrClG/mjeu6Q0mShrIse2LPK1NyXgKApmm9sQC6rp8KAylNmewxAKRSqb6qqn0B/XRKjgRgMDc3dxoFuDqGRMQ4548YY0nGWJ5NHi8453wwGMy4rjvDOeeMsedTcvKMsaTruhoRXaND6IAdx+kBqE1ZyeHu7m4n/Abq9XpHnBhpQl7NcZxe6JTjW3BlyUzTbIiSvh0jvhEEAbLZ7EkIkM1mP4tjuzEKAsBbADBNs8HGWLIrU0pEWFtbawqIGoBnQrggTgcqlcq1e6BcLofg++JdSeTWAGB9fb1JRGNN6auoLScirKysNM7Pz79HOhucnJw4uVzuKC4eRj6fb7Vara/RHMdxeqZpNsLjVyqVrttyAXGtMSEiaJr2Q9f1U1VVe+OE4zE7O3uh6/qppmk/QmEiCorF4seRjYkA+K01W15evrXWzDCM6a1ZBOSumtMdTGpO/9f4CY26gJKVH22dAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTExLTAxVDE1OjM3OjIyKzAxOjAwXudprAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0xMS0wMVQxNTozNzoyMiswMTowMC+60RAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC">
+         <link rel="apple-touch-icon" sizes="180x180" href="https://tampermonkey.freetls.fastly.net/images/icon180.png">
+         <meta name="msapplication-TileColor" content="#ffffff">
+         <meta name="msapplication-TileImage" content="https://tampermonkey.freetls.fastly.net/images/icon144.png">
+                <link href="./Tampermonkey • 文档_files/page.min.css" media="all" rel="stylesheet" type="text/css">
+           <link rel="preconnect" href="https://w.tampermonkey.net/" crossorigin="">
+    <link rel="preconnect" href="https://cse.google.com/" crossorigin="">
+    <link rel="preload" href="https://tampermonkey.freetls.fastly.net/images/adv.png" as="image">        <script async="" type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4506419030010334"></script><script async="" src="./Tampermonkey • 文档_files/analytics.js"></script><script type="text/javascript">
+          (function() {
+            window.loadStart = Date.now();
+            window.addEventListener('DOMContentLoaded', function() { window.loadEnd = Date.now(); });
+            locale = ("zh" || 'en').split(/_/)[0];
+            CDN = 'https://tampermonkey.freetls.fastly.net/';
+            VERSION = 'v1.35/';
+            GEO_COOKIE_NAME = 'geo';
+          })();
+        </script><style type="text/css" abt="234"></style>
+             <script type="text/javascript" src="./Tampermonkey • 文档_files/jquery-1.11.1.min.js"></script>
+         <script type="text/javascript" src="./Tampermonkey • 文档_files/page.min.js"></script>
+    <script>
+  window.startStats = function(npa) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  window.GA_ID = 'default';
+  window.GA_E_ID = 'default';
+
+  ga('create', 'UA-40632644-1', 'tampermonkey.net', {
+    name: window.GA_ID,
+    cookieDomain: 'auto'
+  });
+  ga(window.GA_ID + '.set', 'anonymizeIp', true);
+  if (!npa) {
+    ga(window.GA_ID + '.require', 'displayfeatures');
+  }
+  ga(window.GA_ID + '.set', 'allowAdFeatures', !npa);
+  ga(window.GA_ID + '.send', 'pageview');
+    window.GA_E_ID = 'events';
+    ga('create', 'UA-40632644-3', 'tampermonkey.net', {
+      name: window.GA_E_ID,
+      cookieDomain: 'auto'
+    });
+    ga(window.GA_E_ID + '.set', 'anonymizeIp', true);
+  }
+</script>
+       <script>
+           startStats(false);
+       </script>
+    <script id="picviewer-page-script">(function(messageID){
+                var frameID=Math.random();
+                var frames={
+                    top:window.top,
+                };
+
+                window.addEventListener('message',function(e){
+                    var data=e.data;
+                    if( !data || !data.messageID || data.messageID != messageID )return;//通信ID认证
+                    var source=e.source;
+                    if(source===window){//来自contentscript,发送出去,或者干嘛。
+                        if(data.to){
+                            data.from=frameID;
+                            frames[data.to].postMessage(data,'*');
+                        }else{
+                            switch(data.command){
+                                case 'getIframeObject':{
+                                    var frameWindow=frames[data.windowId];
+                                    var iframes=document.getElementsByTagName('iframe');
+                                    var iframe;
+                                    var targetIframe;
+                                    for(var i=iframes.length-1 ; i>=0 ; i--){
+                                        iframe=iframes[i];
+                                        if(iframe.contentWindow===frameWindow){
+                                            targetIframe=iframe;
+                                            break;
+                                        };
+                                    };
+                                    var cusEvent=document.createEvent('CustomEvent');
+                                    cusEvent.initCustomEvent('pv-getIframeObject',false,false,targetIframe);
+                                    document.dispatchEvent(cusEvent);
+                                }break;
+                            };
+                        };
+
+                    }else{//来自别的窗口的，contentscript可以直接接收，这里保存下来自的窗口的引用
+                        frames[data.from]=source;
+                    };
+                },true)
+            })("pv-0.5106795670312598")</script><script type="text/javascript" async="" src="./Tampermonkey • 文档_files/s.js"></script><input type="hidden" id="_w_tusk"><script type="text/javascript" src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script><script>//remove baidu search ad
+var _countAA = 0
+function doBBBd(){}
+doBBBd()
+document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
+document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
+
+</script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Tampermonkey • 文档_files/translateelement.css"></head><remove-web-limits-iqxin id="rwl-iqxin" class="rwl-exempt" style="position: fixed; top: 472px; left: 0px;"><qxinbutton type="qxinbutton" id="rwl-setbtn"> set </qxinbutton> <lalala style="cursor:move; font-size:12px;">限制解除</lalala> <input type="checkbox" name="" id="black_node"><style type="text/css">#rwl-iqxin{position:fixed;transform:translate(-95px,0);width:85px;height:25px;font-size:12px;font-weight: 500;font-family:Verdana, Arial, '宋体';color:#fff;background:#333;z-index:2147483647;margin: 0;opacity:0.05;transition:0.3s;overflow:hidden;user-select:none;text-align:center;white-space:nowrap;line-height:25px;padding:0 16px;border:1px solid #ccc;border-width:1px 1px 1px 0;border-bottom-right-radius:5px;box-sizing: content-box;}#rwl-iqxin input{margin: 0;padding: 0;vertical-align:middle;-webkit-appearance:checkbox;-moz-appearance:checkbox;position: static;clip: auto;opacity: 1;cursor: pointer;}#rwl-iqxin.rwl-active-iqxin{left: 0px;transform:translate(0,0);opacity: 0.9;height: 32px;line-height: 32px}#rwl-iqxin label{margin:0;padding:0;font-weight:500;}#rwl-iqxin #rwl-setbtn{margin: 0 4px 0 0;padding: 0 0 0 4px;border: none;border-radius: 2px;cursor: pointer;background: #fff;color: #000;} </style></remove-web-limits-iqxin>
+          <body class="main default">
+          <div id="curtain" class="curouter hide" style="z-index: 20000">
+      <div class="curmiddle_fixed">
+      <table class="curtable">
+      <tbody><tr>
+      <td class="curtableoutertd">
+      </td>
+      <td class="curtableinner">
+      <div class="curcontainer">
+      <div class="curwaithead">
+      </div>
+      <div class="curwaitmsg">
+      <div>
+      <img src="./Tampermonkey • 文档_files/large-loading.gif" alt="loading...">
+      </div>
+      <div class="curtext">Please wait...
+      </div>
+      </div>
+      </div>
+      </td>
+      <td class="curtableoutertd">
+      </td>
+      </tr>
+      </tbody></table>
+      </div>
+      <div class="curbg">
+      </div>
+      </div>
+        <div class="content_wrapper">
+         <div id="div_head_container" class="head_container">
+  <a id="a_head_link_head_link" href="http://www.tampermonkey.net/">
+   <div id="div_head1" class="float">
+    <div class="banner sprite-images-icon64 images"></div>
+   </div>
+   <div id="div_head2" class="float head">
+    <div id="title" class="header_title">
+     Tampermonkey<sup>®</sup>
+    </div>
+    <div id="div_version_version" class="version">
+      by Jan Biniok
+    </div>
+   </div>
+  </a>
+      <div class="searchbox">
+              <div class="searchbox_mv search">
+          <form action="https://www.google.com/" id="cse-search-box" target="_blank">
+            搜索此页: &nbsp;&nbsp;
+            <input type="hidden" name="cx" value="partner-pub-4506419030010334:4783337227">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="text" name="q" size="40" placeholder="" style="background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left 9px top 50% no-repeat rgb(255, 255, 255);">
+            <input type="submit" name="sa" value="搜索此页">
+          <input name="siteurl" value="www.tampermonkey.net/documentation.php" type="hidden"><input name="ref" value="" type="hidden"><input name="ss" value="" type="hidden"></form>
+          <script async="" type="text/javascript" src="./Tampermonkey • 文档_files/brand"></script>
+        </div>
+            <div class="searchbox_mv">
+        <select id="locale">
+          <option value="zh" title="Chinese (Simplified) - 中文（简体中文）">zh</option>
+          <option value="en" title="English" selected="selected">en</option>
+          <option value="de" title="German - Deutsch">de</option>
+          <option value="pt" title="Portuguese (Brazil) - português brasileiro">pt</option>
+          <option value="ru" title="Russian - русский">ru</option>
+          <option value="it" title="Italian - italiano">it</option>
+          <option value="es" title="Spanish - español">es</option>
+          <option value="ja" title="Japanese - 日本語">ja</option>
+        </select>
+      </div>
+    </div>
+     </div>
+    <div id="div_tv_container" class="tv_container">
+<div id="div_mainmain" class="tv">
+<table id="table_main_tablemain" class="tv_table noborder"><!-- tabview start-->
+<tbody><tr id="tr_tabsdiv_tv_containermain" class="tr_tabs">
+<td id="td_pagesmain" class="td_tabs">
+    <div id="div_tv_tabs_fillmain" class="tv_tabs_fill">
+<div id="div_tv_tabs_tablemain" class="tv_tabs_table">
+<div id="div_tv_tabs_alignmain" class="tv_tabs_align">
+
+<div class="tv_tab " onclick="setUrl(&#39;index.php&#39;, window.g);">
+<div>首页</div>
+</div>
+
+<div class="tv_tab " onclick="setUrl(&#39;scripts.php&#39;, window.g);">
+<div>用户脚本</div>
+</div>
+
+<div class="tv_tab tv_selected " onclick="setUrl(&#39;faq.php&#39;, window.g);">
+<div>文档</div>
+</div>
+
+<div class="tv_tab " onclick="setUrl(&#39;changelog.php&#39;, window.g);">
+<div>变化</div>
+</div>
+
+<div class="tv_tab " onclick="setUrl(httpsify(&#39;contrib.php&#39;), window.g);">
+<div>捐助</div>
+</div>
+
+<div class="tv_tab " onclick="setUrl(&#39;imprint.php&#39;, window.g);">
+<div>关于</div>
+</div>
+
+</div>
+</div>
+</div>
+    </td>
+</tr>
+<tr id="tr_contentdiv_tv_containermain" class="tr_content">
+<td id="td_contentmain" class="td_content">
+<div name="tabview_contentmain" class="tv_contents">
+<div class="tv_content">
+     <table class="noborder p100100"><!-- subnav start-->
+  <tbody><tr>
+   <td>
+    <div class="tv tv_alt">
+     <table class="tv_table tv_table_alt noborder"><!-- subnav tabview start-->
+      <tbody><tr class="tr_tabs tr_tabs_alt">
+       <td class="td_tabs td_tabs_alt">
+        <div class="tv_tabs_fill tv_tabs_fill_alt">
+         <div class="tv_tabs_table tv_tabs_table_alt">
+          <div class="tv_tabs_align tv_tabs_align_alt" id="subnav">
+             <div name="subnav" class="tv_tab tv_tab_alt" url="faq.php">
+           常问问题         </div>
+               <div name="subnav" class="tv_selected tv_tab tv_tab_alt" url="documentation.php">
+           文档         </div>
+                </div>
+         </div>
+        </div>
+       </td>
+      </tr>
+      <tr id="tr_contenttd" class="tr_content tr_content_alt">
+       <td id="td_contentdetails" class="td_content td_content_alt">
+        <div class="tv_contents">
+         <div class="tv_content tv_content_alt tv_content_center"><!-- SUB NAV CONTENT START-->
+    
+<table class="noborder p100100"><tbody><tr><td style="vertical-align: top;">
+</td><td style="vertical-align: top;">
+<!--
+ start content
+// -->
+<div class="intro">
+This section describes how the Tampermonkey API can be used and what is different to Geasemonkey.
+</div>
+
+      <div class="section noborder">
+       <div class="header" id="content">
+        内容       </div>
+    
+<table class="noborder p100100"><tbody><tr>
+<td style="vertical-align: top;">
+  <div class="overview overview-cols" id="overview"><p>
+        Userscript Header       </p><a href="https://www.tampermonkey.net/documentation.php#_name">@name</a><a href="https://www.tampermonkey.net/documentation.php#_namespace">@namespace</a><a href="https://www.tampermonkey.net/documentation.php#_version">@version</a><a href="https://www.tampermonkey.net/documentation.php#_author">@author</a><a href="https://www.tampermonkey.net/documentation.php#_description">@description</a><a href="https://www.tampermonkey.net/documentation.php#_homepage">@homepage, @homepageURL, @website and @source</a><a href="https://www.tampermonkey.net/documentation.php#_icon">@icon, @iconURL and @defaulticon</a><a href="https://www.tampermonkey.net/documentation.php#_icon64_and_icon64URL">@icon64 and @icon64URL</a><a href="https://www.tampermonkey.net/documentation.php#_updateURL">@updateURL</a><a href="https://www.tampermonkey.net/documentation.php#_downloadURL">@downloadURL</a><a href="https://www.tampermonkey.net/documentation.php#_supportURL">@supportURL</a><a href="https://www.tampermonkey.net/documentation.php#_include">@include</a><a href="https://www.tampermonkey.net/documentation.php#_match">@match</a><a href="https://www.tampermonkey.net/documentation.php#_exclude">@exclude</a><a href="https://www.tampermonkey.net/documentation.php#_require">@require</a><a href="https://www.tampermonkey.net/documentation.php#_resource">@resource</a><a href="https://www.tampermonkey.net/documentation.php#_connect">@connect</a><a href="https://www.tampermonkey.net/documentation.php#_run_at">@run-at</a><a href="https://www.tampermonkey.net/documentation.php#_grant">@grant</a><a href="https://www.tampermonkey.net/documentation.php#_antifeature">@antifeature</a><a href="https://www.tampermonkey.net/documentation.php#_noframes">@noframes</a><a href="https://www.tampermonkey.net/documentation.php#_unwrap">@unwrap</a><a href="https://www.tampermonkey.net/documentation.php#_nocompat">@nocompat</a><p>
+        Application Programming Interface       </p><a href="https://www.tampermonkey.net/documentation.php#unsafeWindow">unsafeWindow</a><a href="https://www.tampermonkey.net/documentation.php#Subresource_Integrity">Subresource Integrity</a><a href="https://www.tampermonkey.net/documentation.php#GM_addStyle">GM_addStyle(css)</a><a href="https://www.tampermonkey.net/documentation.php#GM_addElement">GM_addElement(tag_name, attributes), GM_addElement(parent_node, tag_name, attributes)</a><a href="https://www.tampermonkey.net/documentation.php#GM_deleteValue">GM_deleteValue(name)</a><a href="https://www.tampermonkey.net/documentation.php#GM_listValues">GM_listValues()</a><a href="https://www.tampermonkey.net/documentation.php#GM_addValueChangeListener">GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})</a><a href="https://www.tampermonkey.net/documentation.php#GM_removeValueChangeListener">GM_removeValueChangeListener(listener_id)</a><a href="https://www.tampermonkey.net/documentation.php#GM_setValue">GM_setValue(name, value)</a><a href="https://www.tampermonkey.net/documentation.php#GM_getValue">GM_getValue(name, defaultValue)</a><a href="https://www.tampermonkey.net/documentation.php#GM_log">GM_log(message)</a><a href="https://www.tampermonkey.net/documentation.php#GM_getResourceText">GM_getResourceText(name)</a><a href="https://www.tampermonkey.net/documentation.php#GM_getResourceURL">GM_getResourceURL(name)</a><a href="https://www.tampermonkey.net/documentation.php#GM_registerMenuCommand">GM_registerMenuCommand(name, fn, accessKey)</a><a href="https://www.tampermonkey.net/documentation.php#GM_unregisterMenuCommand">GM_unregisterMenuCommand(menuCmdId)</a><a href="https://www.tampermonkey.net/documentation.php#GM_openInTab">GM_openInTab(url, options), GM_openInTab(url, loadInBackground)</a><a href="https://www.tampermonkey.net/documentation.php#GM_xmlhttpRequest">GM_xmlhttpRequest(details)</a><a href="https://www.tampermonkey.net/documentation.php#GM_download">GM_download(details), GM_download(url, name)</a><a href="https://www.tampermonkey.net/documentation.php#GM_getTab">GM_getTab(callback)</a><a href="https://www.tampermonkey.net/documentation.php#GM_saveTab">GM_saveTab(tab)</a><a href="https://www.tampermonkey.net/documentation.php#GM_getTabs">GM_getTabs(callback)</a><a href="https://www.tampermonkey.net/documentation.php#GM_notification">GM_notification(details, ondone), GM_notification(text, title, image, onclick)</a><a href="https://www.tampermonkey.net/documentation.php#GM_setClipboard">GM_setClipboard(data, info)</a><a href="https://www.tampermonkey.net/documentation.php#GM_info">GM_info</a><a href="https://www.tampermonkey.net/documentation.php#_lt_gt_lt_">&lt;&gt;&lt;![CDATA[your_text_here]]&gt;&lt;/&gt;</a></div>
+</td><td class="werl werl300 r sticky" id="123kdcf831" style="vertical-align:top;padding-top:17px;"><div class="i">
+      <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4506419030010334" data-ad-slot="7303765014"></ins><script type="text/javascript">(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <script type="text/javascript">
+            var pause = 1;
+
+            if (window.ads) window.ads.ns('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4506419030010334', false, function(suc) {
+                window.loadAEnd = Date.now();
+                var aav = $('<div id="ads_are_visible" class="adsbygoogle" style="height: 0px;"></div>');
+                aav.appendTo(document.body);
+                var ads_are_visible = !!aav.is(':visible');
+                aav.remove();
+                if (suc && ads_are_visible) {
+                    var ni = function(url, cb) {
+                        var g = document.createElement('img');
+                        g.src = url;
+                        g.onload = function() { if (cb) cb(true); };
+                        g.onerror = function() { if (cb) cb(false); };
+                        document.body.appendChild(g);
+                    };
+
+                    ni('https://tampermonkey.freetls.fastly.net/images/adv.png', function(suc) {
+                        window.ads.setStatus(suc);
+                    });
+                } else {
+                    window.ads.setStatus(null);
+                }
+            });
+            if (window.ads) window.ads.addStatusListener(function(l) {
+                              if (!l) {
+                    if (l === false) $('body').addClass('acceptable');
+                    return;
+                }
+                adsbygoogle = window.adsbygoogle || [];
+                if (pause) adsbygoogle.pauseAdRequests = pause;
+                            });
+            window.startG = function(npa) {
+                adsbygoogle = window.adsbygoogle || [];
+                adsbygoogle.requestNonPersonalizedAds = npa;
+                adsbygoogle.pauseAdRequests = pause = 0;
+            };
+        </script>
+        <script>(function() {
+    "use strict";
+    var w = $('#123kdcf831');
+    if (!w.length) return;
+    var e;
+    var update_e = function() { e = w[0].getBoundingClientRect().top; };
+    update_e();
+    window.addEventListener('resize', update_e);
+    window.addEventListener('scroll', function() { w.toggleClass('sticky', window.pageYOffset > e); });
+    })()</script>
+  </div></td>
+</tr></tbody></table>
+
+      </div><!-- section -->
+          <div class="section noborder">
+       <div class="header" id="metadata">
+        Userscript Header       </div>
+         <div class="subsection " id="_name" style="">
+      <h3 class="">@name</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The name of the script.<br>
+<br>
+Internationalization is done by adding an appendix naming the locale.
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @name A test<br>
+// @name:de Ein Test<br>
+</code>
+</div>
+</div>
+
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_namespace" style="">
+      <h3 class="">@namespace</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The namespace of the script.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_version" style="">
+      <h3 class="">@version</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The script version. This is used for the update check, in case the script is not installed from userscript.org or TM has problems to retrieve the scripts meta data.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_author" style="">
+      <h3 class="">@author</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The scripts author.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_description" style="">
+      <h3 class="">@description</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+A short significant description.<br>
+<br>
+Internationalization is done by adding an appendix naming the locale.
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @description    This userscript does wonderful things<br>
+// @description:de Dieses Userscript tut wundervolle Dinge<br>
+</code>
+</div>
+</div>
+
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_homepage" style="">
+      <h3 class="">@homepage, @homepageURL, @website and @source</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The authors homepage that is used at the options page to link from the scripts name to the given page. Please note that if the <span style="font-weight: bold">
+@namespace</span>
+ tag starts with 'http://' its content will be used for this too.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_icon" style="">
+      <h3 class="">@icon, @iconURL and @defaulticon</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The script icon in low res.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_icon64_and_icon64URL" style="">
+      <h3 class="">@icon64 and @icon64URL</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+This scripts icon in 64x64 pixels. If this tag, but <span style="font-weight: bold">
+@icon</span>
+ is given the <span style="font-weight: bold">
+@icon</span>
+ image will be scaled at some places at the options page.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_updateURL" style="">
+      <h3 class="">@updateURL</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+An update URL for the userscript.<br>
+Note: a @version tag is required to make update checks work.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_downloadURL" style="">
+      <h3 class="">@downloadURL</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Defines the URL where the script will be downloaded from when an update was detected. If the value <i>none</i> is used, then no update check will be done.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_supportURL" style="">
+      <h3 class="">@supportURL</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Defines the URL where the user can report issues and get personal support.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_include" style="">
+      <h3 class="">@include</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The pages on that a script should run. Multiple tag instances are allowed.<br>
+Please note that @include doesn't support the URL hash parameter. You have to match the path without the hash parameter and make use of <a href="https://www.tampermonkey.net/documentation.php#_grant" class="postlink">window.onurlchange</a>
+<table cellspacing="0">
+<tbody>
+<tr>
+<td>
+
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @include http://www.tampermonkey.net/*<br>
+// @include http://*<br>
+// @include https://*<br>
+// @include /^https:\/\/www\.tampermonkey\.net\/.*$/
+// @include *<br>
+</code>
+</div>
+</div>
+
+</td>
+
+<td>
+
+<div style="padding-left:20px;height:75px;width:320px;">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_match" style="">
+      <h3 class="">@match</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+More or less equal to the <span style="font-weight: bold">
+@include</span>
+ tag. You can get more information <a href="https://developer.chrome.com/docs/extensions/mv2/match_patterns/" class="postlink" target="blank" rel="nooopener nofollow">
+here</a>
+.<br>
+Note: the '&lt;all_urls&gt;' statement is not yet supported and the scheme part also accepts 'http*://'.<br>
+<br>
+Multiple tag instances are allowed.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_exclude" style="">
+      <h3 class="">@exclude</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Exclude URLs even it they are included by <span style="font-weight: bold">
+@include</span>
+ or <span style="font-weight: bold">
+@match</span>
+.<br>
+<br>
+Multiple tag instances are allowed.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_require" style="">
+      <h3 class="">@require</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Points to a JavaScript file that is loaded and executed before the script itself starts running.<br>
+Note: the scripts loaded via <b>@require</b> and their "use strict" statements might influence the userscript's strict mode!
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @require https://code.jquery.com/jquery-2.1.4.min.js<br>
+// @require https://code.jquery.com/jquery-2.1.3.min.js#sha256=23456...<br>
+// @require https://code.jquery.com/jquery-2.1.2.min.js#md5=34567...,sha256=6789...<br>
+// @require tampermonkey://vendor/jquery.js<br>
+// @require tampermonkey://vendor/jszip/jszip.js<br>
+</code>
+</div>
+</div>
+Please check the <a href="https://www.tampermonkey.net/documentation.php#Subresource_Integrity">sub-resource integrity</a> section for more information how to ensure integrity.
+Multiple tag instances are allowed.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_resource" style="">
+      <h3 class="">@resource</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Preloads resources that can by accessed via GM_getResourceURL and GM_getResourceText by the script.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @resource icon1 http://www.tampermonkey.net/favicon.ico<br>
+// @resource icon2 /images/icon.png<br>
+// @resource html http://www.tampermonkey.net/index.html<br>
+// @resource xml http://www.tampermonkey.net/crx/tampermonkey.xml<br>
+// @resource SRIsecured1 http://www.tampermonkey.net/favicon.ico#md5=123434...<br>
+// @resource SRIsecured2 http://www.tampermonkey.net/favicon.ico#md5=123434...;sha256=234234...<br>
+</code>
+</div>
+</div>
+Please check the <a href="https://www.tampermonkey.net/documentation.php#Subresource_Integrity">sub-resource integrity</a> section for more information how to ensure integrity.
+Multiple tag instances are allowed.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_connect" style="">
+      <h3 class="">@connect</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+This tag defines the domains (no top-level domains) including subdomains which are allowed to be retrieved by <a href="https://www.tampermonkey.net/documentation.php#GM_xmlhttpRequest">GM_xmlhttpRequest</a><br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @connect &lt;value&gt;<br>
+</code>
+ <br>
+ <i>&lt;value&gt;</i> can have the following values:
+ <ul>
+  <li>domains like <i>tampermonkey.net</i> (this will also allow all sub-domains)</li>
+  <li>sub-domains i.e. <i>safari.tampermonkey.net</i></li>
+  <li><i>self</i> to whitelist the domain the script is currently running at</li>
+  <li><i>localhost</i> to access the localhost</li>
+  <li><i>1.2.3.4</i> to connect to an IP address</li>
+  <li><i>*</i></li>
+ </ul>
+</div>
+</div>
+If it's not possible to declare all domains a userscript might connect to then it's a good practice to do the following:<br>
+<b>Declare all known or at least all common domains</b> that might be connected by the script.
+This way the confirmation dialog can be avoided for most of the users.<br>
+<br>
+Additionally add "@connect *" to the script. By doing so Tampermonkey will still ask the user whether the next connection to a not mentioned domain is allowed, but also <b>offer a "Always allow all domains" button</b>.
+If the user clicks at this button then all future requests will be permitted automatically.<br>
+<br>
+Users can also whitelist all requests by adding '*' to the user domain whitelist at the script settings tab.<br>
+<br>
+Notes:<ul>
+<li>both, the initial <b>and</b> the final URL will be checked!</li>
+<li>for backward compatibility to Scriptish <a href="https://github.com/scriptish/scriptish/wiki/Manual%3A-Metadata-Block#user-content-domain-new-in-scriptish" rel="noopener nofollow" target="_blank">@domain</a> tags are interpreted as well.</li>
+</ul>
+Multiple tag instances are allowed.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_run_at" style="">
+      <h3 class="">@run-at</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Defines the moment the script is injected. In opposition to other script handlers, <span style="font-weight: bold">
+@run-at</span>
+ defines the first possible moment a script wants to run. This means it may happen, that a script that uses the <span style="font-weight: bold">
+@require</span>
+ tag may be executed after the document is already loaded, cause fetching the required script took that long. Anyhow, all DOMNodeInserted and DOMContentLoaded events that happended after the given injection moment are cached and delivered to the script when it is injected.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @run-at document-start<br>
+</code>
+</div>
+</div>
+The script will be injected as fast as possible.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @run-at document-body<br>
+</code>
+</div>
+</div>
+The script will be injected if the body element exists.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @run-at document-end<br>
+</code>
+</div>
+</div>
+The script will be injected when or after the DOMContentLoaded event was dispatched.
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @run-at document-idle<br>
+</code>
+</div>
+</div>
+The script will be injected after the DOMContentLoaded event was dispatched. This is the default value if no @run-at tag is given.
+<div class="codewrapper">
+<div class="codetitle">
+<b>Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @run-at context-menu<br>
+</code>
+</div>
+</div>
+The script will be injected if it is clicked at the browser context menu (desktop Chrome-based browsers only).<br>
+Note: all <b>@include</b> and <b>@exclude</b> statements will be ignored if this value is used, but this may change in the future.<br>
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_grant" style="">
+      <h3 class="">@grant</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+@grant is used to whitelist GM_* functions, the unsafeWindow object and some powerful window functions. If no @grant tag is given TM guesses the scripts needs.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @grant GM_setValue<br>
+// @grant GM_getValue<br>
+// @grant GM_setClipboard<br>
+// @grant unsafeWindow<br>
+// @grant window.close<br>
+// @grant window.focus<br>
+// @grant window.onurlchange<br>
+</code>
+</div>
+</div>
+Since closing and focusing tabs is a powerful feature this needs to be added to the @grant statements as well.<br>
+<br>
+If a script runs on a single-page application, then it can use window.onurlchange to listen for URL changes: <br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// ==UserScript==<br>
+...<br>
+// @grant window.onurlchange<br>
+// ==/UserScript==<br>
+<br>
+if (window.onurlchange === null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// feature is supported<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener('urlchange', (info) =&gt; ...);<br>
+}<br>
+</code>
+</div>
+</div>
+If @grant is followed by 'none' the sandbox is disabled and the script will run directly at the page context. In this mode no GM_* function but the GM_info property will be available.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @grant none
+</code>
+</div>
+</div>
+
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_antifeature" style="">
+      <h3 class="">@antifeature</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+This tag allows script developers to disclose whether they monetize their scripts. It is for example required by <a href="https://greasyfork.org/" rel="noopener nofollow" target="_blank">GreasyFork</a>.<br>
+  <br>
+Syntax: &lt;tag&gt; &lt;type&gt; &lt;description&gt;<br>
+<br>
+ <i>&lt;type&gt;</i> can have the following values:
+ <ul>
+  <li>ads</li>
+  <li>tracking</li>
+  <li>miner</li>
+ </ul>
+
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @antifeature     ads       We show you ads<br>
+// @antifeature:fr  ads       Nous vous montrons des publicités<br>
+// @antifeature     tracking  We have some sort of analytics included<br>
+// @antifeature     miner     We use your computer's resources to mine a crypto currency<br>
+</code>
+</div>
+</div>
+Internationalization is done by adding an appendix naming the locale.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_noframes" style="">
+      <h3 class="">@noframes</h3>
+     <div class="content">
+    <div class="text">
+<div class="subsection_content">
+This tag makes the script running on the main pages, but not at iframes.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_unwrap" style="">
+      <h3 class="">@unwrap</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+This tag is ignored because, it is not needed at Google Chrome/Chromium.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_nocompat" style="">
+      <h3 class="">@nocompat</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+At the moment TM tries to detect whether a script was written in knowledge of Google Chrome/Chromium by looking for the <span style="font-weight: bold">
+@match</span>
+tag, but not every script uses it. That's why TM supports this tag to disable all optimizations that might be necessary to run scripts written for Firefox/Greasemonkey. To keep this tag extensible you can to add the browser name that can be handled by the script.<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @nocompat Chrome</code>
+</div>
+</div>
+
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+          </div><!-- section -->
+          <div class="section noborder">
+       <div class="header" id="api">
+        Application Programming Interface       </div>
+    
+     <div class="subsection " id="unsafeWindow" style="">
+      <h3 class="">unsafeWindow</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The unsafeWindow object provides full access to the pages javascript functions and variables.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="Subresource_Integrity" style="">
+      <h3 class="">Subresource Integrity</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+The hash component of the URL of <b>@resource</b> and <b>@require</b> tags can be used for this purpose.
+
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+// @resource SRIsecured1 http://www.tampermonkey.net/favicon1.ico#md5=ad34bb...<br>
+// @resource SRIsecured2 http://www.tampermonkey.net/favicon2.ico#md5=ac3434...,sha256=23fd34...<br>
+// @require              https://code.jquery.com/jquery-2.1.1.min.js#md5=45eef...<br>
+// @require              https://code.jquery.com/jquery-2.1.2.min.js#md5-ac56d...,sha256-6e789...<br>
+// @require              https://code.jquery.com/jquery-3.6.0.min.js#sha256-/xUj+3OJU...ogEvDej/m4=<br>
+</code>
+</div>
+</div>
+TM supports SHA-256 and MD5 hashes natively, all other (SHA-1, SHA-384 and SHA-512) depend on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto" rel="noopener nofollow" target="_blank">window.crypto</a>.
+In case multiple hashes (separated by comma or semicolon) are given the last currently supported one is used by TM.
+If the content of the external resource doesn't match the selected hash, then the resource is not delivered to the userscript.<br><br>
+All hashes need to be encoded in hex or Base64 format.
+</div>
+</div>
+
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_addStyle" style="">
+      <h3 class="">GM_addStyle(css)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Adds the given style to the document and returns the injected style element.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_addElement" style="">
+      <h3 class="">GM_addElement(tag_name, attributes), GM_addElement(parent_node, tag_name, attributes)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Creates an HTML element specified by 'tag_name' and applies all given 'attributes' and returns the injected HTML element. If a 'parent_node' is given, then it is attached to it or to document head or body otherwise.<br>
+<br>
+For suitable 'attributes', please consult the appropriate documentation. For example:<br>
+<ul>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" rel="noopener nofollow" target="_blank">script tag</a>
+</li>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img" rel="noopener nofollow" target="_blank">img tag</a>
+</li>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" rel="noopener nofollow" target="_blank">style tag</a>
+</li>
+</ul>
+
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+GM_addElement('script', {<br>
+&nbsp;&nbsp;textContent: 'window.foo = "bar";'<br>
+});<br>
+<br>
+GM_addElement('script', {<br>
+&nbsp;&nbsp;src: 'https://example.com/script.js',<br>
+&nbsp;&nbsp;type: 'text/javascript'<br>
+});<br>
+<br>
+GM_addElement(document.getElementsByTagName('div')[0], 'img', {<br>
+&nbsp;&nbsp;src: 'https://example.com/image.png'<br>
+});<br>
+<br>
+GM_addElement(shadowDOM, 'style', {<br>
+&nbsp;&nbsp;textContent: 'div { color: black; };'<br>
+});<br>
+</code>
+</div>
+</div>
+
+Note: this feature is experimental and the API may change.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_deleteValue" style="">
+      <h3 class="">GM_deleteValue(name)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Deletes 'name' from storage.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_listValues" style="">
+      <h3 class="">GM_listValues()</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+List all names of the storage.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_addValueChangeListener" style="">
+      <h3 class="">GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Adds a change listener to the storage and returns the listener ID. <br>
+'name' is the name of the observed variable. <br>
+The 'remote' argument of the callback function shows whether this value was modified from the instance of another tab (true) or within this script instance (false). <br>
+Therefore this functionality can be used by scripts of different browser tabs to communicate with each other.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_removeValueChangeListener" style="">
+      <h3 class="">GM_removeValueChangeListener(listener_id)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Removes a change listener by its ID.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_setValue" style="">
+      <h3 class="">GM_setValue(name, value)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Set the value of 'name' to the storage.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_getValue" style="">
+      <h3 class="">GM_getValue(name, defaultValue)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get the value of 'name' from storage.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_log" style="">
+      <h3 class="">GM_log(message)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Log a message to the console.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_getResourceText" style="">
+      <h3 class="">GM_getResourceText(name)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get the content of a predefined @resource tag at the script header.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_getResourceURL" style="">
+      <h3 class="">GM_getResourceURL(name)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get the base64 encoded URI of a predefined @resource tag at the script header.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_registerMenuCommand" style="">
+      <h3 class="">GM_registerMenuCommand(name, fn, accessKey)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Register a menu to be displayed at the Tampermonkey menu at pages where this script runs and returns a menu command ID.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_unregisterMenuCommand" style="">
+      <h3 class="">GM_unregisterMenuCommand(menuCmdId)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Unregister a menu command that was previously registered by GM_registerMenuCommand with the given menu command ID.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_openInTab" style="">
+      <h3 class="">GM_openInTab(url, options), GM_openInTab(url, loadInBackground)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Open a new tab with this url.
+The options object can have the following properties:
+<ul>
+  <li><b>active</b> decides whether the new tab should be focused,</li>
+  <li><b>insert</b> that inserts the new tab after the current one,</li>
+  <li><b>setParent</b> makes the browser re-focus the current tab on close and</li>
+  <li><b>incognito</b> makes the tab being opened inside a incognito mode/private mode window.</li>
+</ul>
+
+Otherwise the new tab is just appended. <b>loadInBackground</b> has the opposite meaning of <b>active</b> and was added to achieve Greasemonkey 3.x compatibility.
+If neither <b>active</b> nor <b>loadInBackground</b> is given, then the tab will not be focused.
+This function returns an object with the function <b>close</b>, the listener <b>onclose</b> and a flag called <b>closed</b>.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_xmlhttpRequest" style="">
+      <h3 class="">GM_xmlhttpRequest(details)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Make an xmlHttpRequest.<br>
+<br>
+Property of <i>details</i>:
+<ul>
+  <li><b>method</b> one of GET, HEAD, POST</li>
+  <li><b>url</b> the destination URL</li>
+  <li><b>headers</b> ie. user-agent, referer, ... <span style="font-size: 85%; line-height: normal">(some special headers are not supported by Safari and Android browsers)</span></li>
+  <li><b>data</b> some string to send via a POST request</li>
+  <li><b>cookie</b> a cookie to be patched into the sent cookie set</li>
+  <li><b>binary</b> send the data string in binary mode</li>
+  <li><b>nocache</b> don't cache the resource</li>
+  <li><b>revalidate</b> revalidate maybe cached content</li>
+  <li><b>timeout</b> a timeout in ms</li>
+  <li><b>context</b> a property which will be added to the response object</li>
+  <li><b>responseType</b> one of arraybuffer, blob, json or stream</li>
+  <li><b>overrideMimeType</b> a MIME type for the request</li>
+  <li><b>anonymous</b> don't send cookies with the requests <span style="font-size: 85%; line-height: normal">(please see the fetch notes)</span></li>
+  <li>
+     <b>fetch</b> (beta) use a fetch instead of a xhr request<br>
+     <span style="font-size: 85%; line-height: normal">(at Chrome this causes details.timeout and xhr.onprogress to not work and makes xhr.onreadystatechange receive only readyState 4 events)</span>
+  </li>
+  <li><b>user</b> a user name for authentication</li>
+  <li><b>password</b> a password</li>
+  <li><b>onabort</b> callback to be executed if the request was aborted</li>
+  <li><b>onerror</b> callback to be executed if the request ended up with an error</li>
+  <li><b>onloadstart</b> callback to be executed on load start, provides access to the stream object if responseType is set to "stream"</li>
+  <li><b>onprogress</b> callback to be executed if the request made some progress</li>
+  <li><b>onreadystatechange</b> callback to be executed if the request's ready state changed </li>
+  <li><b>ontimeout</b> callback to be executed if the request failed due to a timeout</li>
+  <li>
+    <b>onload</b> callback to be executed if the request was loaded.<br>
+    It gets one argument with the following attributes:
+    <ul>
+      <li><b>finalUrl</b> - the final URL after all redirects from where the data was loaded</li>
+      <li><b>readyState</b> - the ready state</li>
+      <li><b>status</b> - the request status</li>
+      <li><b>statusText</b> - the request status text</li>
+      <li><b>responseHeaders</b> - the request response headers</li>
+      <li><b>response</b> - the response data as object if <i>details.responseType</i> was set </li>
+      <li><b>responseXML</b> - the response data as XML document </li>
+      <li><b>responseText</b> - the response data as plain string</li>
+    </ul>
+  </li>
+</ul>
+ Returns an object with the following property:
+<ul>
+  <li><b>abort</b> - function to be called to cancel this request</li>
+</ul>
+  <br>
+  <b>Note:</b> the <b>synchronous</b> flag at <i>details</i> is not supported<br>
+<br>
+<b>Important:</b> if you want to use this method then please also check the documentation about <a href="https://www.tampermonkey.net/documentation.php#_connect">@connect</a>.
+
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_download" style="">
+      <h3 class="">GM_download(details), GM_download(url, name)</h3>
+     <div class="content">
+    
+<div class="text">
+ <div class="subsection_content">
+ Downloads a given URL to the local disk.<br>
+ <br>
+ <i>details</i> can have the following attributes:
+ <ul>
+  <li><b>url</b> - the URL from where the data should be downloaded (required)</li>
+  <li><b>name</b> - the filename - for security reasons the file extension needs to be whitelisted at Tampermonkey's options page (required)</li>
+  <li><b>headers</b> - see GM_xmlhttpRequest for more details</li>
+  <li><b>saveAs</b> - boolean value, show a saveAs dialog</li>
+  <li><b>onerror</b> callback to be executed if this download ended up with an error</li>
+  <li><b>onload</b> callback to be executed if this download finished</li>
+  <li><b>onprogress</b> callback to be executed if this download made some progress</li>
+  <li><b>ontimeout</b> callback to be executed if this download failed due to a timeout</li>
+ </ul>
+<table cellspacing="0">
+<tbody>
+<tr>
+<td>
+
+The <i>download</i> argument of the <i>onerror</i> callback can have the following attributes:
+<ul>
+  <li><b>error</b> - error reason
+    <ul>
+     <li>
+        not_enabled - the download feature isn't enabled by the user
+     </li>
+     <li>
+        not_whitelisted - the requested file extension is not whitelisted
+     </li>
+     <li>
+        not_permitted - the user enabled the download feature, but did not give the <i>downloads</i> permission
+     </li>
+     <li>
+        not_supported - the download feature isn't supported by the browser/version
+     </li>
+     <li>
+        not_succeeded - the download wasn't started or failed, the <i>details</i> attribute may provide more information
+     </li>
+    </ul>
+  </li>
+  <li><b>details</b> - detail about that error</li>
+</ul>
+Returns an object with the following property:
+<ul>
+  <li><b>abort</b> - function to be called to cancel this download</li>
+</ul>
+<br>
+ Depending on the download mode GM_info provides a property called <i>downloadMode</i> which is set to one of the following values: <b>native</b>, <b>disabled</b> or <b>browser</b>.
+</td>
+<td>
+<div style="padding-left:20px;height: 336x280px;width: 336px;">
+    <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-4506419030010334" data-ad-slot="7271954601"></ins><script type="text/javascript">(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+ </div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_getTab" style="">
+      <h3 class="">GM_getTab(callback)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get a object that is persistent as long as this tab is open.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_saveTab" style="">
+      <h3 class="">GM_saveTab(tab)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Save the tab object to reopen it after a page unload.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_getTabs" style="">
+      <h3 class="">GM_getTabs(callback)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get all tab objects as a hash to communicate with other script instances.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_notification" style="">
+      <h3 class="">GM_notification(details, ondone), GM_notification(text, title, image, onclick)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+
+Shows a HTML5 Desktop notification and/or highlight the current tab.<br>
+ <br>
+ <i>details</i> can have the following attributes:
+ <ul>
+  <li><b>text</b> - the text of the notification (required unless highlight is set)</li>
+  <li><b>title</b> - the notificaton title</li>
+  <li><b>image</b> - the image</li>
+  <li><b>highlight</b> - a boolean flag whether to highlight the tab that sends the notfication (required unless text is set)</li>
+  <li><b>silent</b> - a boolean flag whether to not play a sound</li>
+  <li><b>timeout</b> - the time after that the notification will be hidden (0 = disabled)</li>
+  <li><b>ondone</b> - called when the notification is closed (no matter if this was triggered by a timeout or a click) or the tab was highlighted</li>
+  <li><b>onclick</b> - called in case the user clicks the notification</li>
+ </ul>
+All parameters do exactly the same like their corresponding details property pendant.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_setClipboard" style="">
+      <h3 class="">GM_setClipboard(data, info)</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Copies data into the clipboard. The parameter 'info' can be an object like "{ type: 'text', mimetype: 'text/plain'}" or just a string expressing the type ("text" or "html").
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="GM_info" style="">
+      <h3 class="">GM_info</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Get some info about the script and TM. The object might look like this:<br>
+<div class="codewrapper">
+<div class="codetitle">
+<b>
+Code:</b>
+</div>
+<div class="codecontent">
+<code>
+Object+<br>
+---&gt; script: Object+<br>
+------&gt; author: ""<br>
+------&gt;copyright: "2012+, You"<br>
+------&gt;description: "enter something useful"<br>
+------&gt;excludes: Array[0]<br>
+------&gt;homepage: null<br>
+------&gt;icon: null<br>
+------&gt;icon64: null<br>
+------&gt;includes: Array[2]<br>
+------&gt;lastUpdated: 1338465932430<br>
+------&gt;matches: Array[2]<br>
+------&gt;downloadMode: 'browser'<br>
+------&gt;name: "Local File Test"<br>
+------&gt;namespace: "http://your.homepage/"<br>
+------&gt;options: Object+<br>
+---------&gt;awareOfChrome: true<br>
+---------&gt;compat_arrayleft: false<br>
+---------&gt;compat_foreach: false<br>
+---------&gt;compat_forvarin: false<br>
+---------&gt;compat_metadata: false<br>
+---------&gt;compat_prototypes: false<br>
+---------&gt;compat_uW_gmonkey: false<br>
+---------&gt;noframes: false<br>
+---------&gt;override: Object+<br>
+------------&gt;excludes: false<br>
+------------&gt;includes: false<br>
+------------&gt;orig_excludes: Array[0]<br>
+------------&gt;orig_includes: Array[2]<br>
+------------&gt;use_excludes: Array[0]<br>
+------------&gt;use_includes: Array[0]<br>
+---------&gt;run_at: "document-end"<br>
+------&gt;position: 1<br>
+------&gt;resources: Array[0]<br>
+------&gt;run-at: "document-end"<br>
+------&gt;system: false<br>
+------&gt;unwrap: false<br>
+------&gt;version: "0.1"<br>
+---&gt; scriptMetaStr: undefined<br>
+---&gt; scriptSource: "// ==UserScript==\n// @name&nbsp; &nbsp; &nbsp; &nbsp;Local File Test\n ...."<br>
+---&gt; scriptUpdateURL: undefined<br>
+---&gt; scriptWillUpdate: false<br>
+---&gt; scriptHandler: "Tampermonkey"<br>
+---&gt; isIncognito: false<br>
+---&gt; isFirstPartyIsolation: false<br>
+---&gt; version: "4.0.25"</code>
+</div>
+</div>
+
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+         <div class="subsection " id="_lt_gt_lt_" style="">
+      <h3 class="">&lt;&gt;&lt;![CDATA[your_text_here]]&gt;&lt;/&gt;</h3>
+     <div class="content">
+    
+<div class="text">
+<div class="subsection_content">
+Tampermonkey supports this way of storing meta data. TM tries to automatically detect whether a script needs this compatibility option to be enabled.
+</div>
+</div>
+     </div>
+     </div> <!-- subsection-->
+          </div><!-- section -->
+    
+<!--
+ end content
+// -->
+</td></tr></tbody></table>
+
+         </div><!-- subnav content end-->
+        </div>
+       </td>
+      </tr>
+     </tbody></table><!-- subnav tabview end-->
+    </div>
+   </td>
+  </tr>
+ </tbody></table>
+    </div>
+</div>
+</td>
+</tr>
+</tbody></table><!-- tabview end -->
+</div>
+</div>
+        </div>
+       <div class="footer">
+       <div>
+         <a href="javascript:void(0)" onclick="setUrl(&#39;imprint.php&#39;, window.g);">联系方式</a> | <a href="javascript:void(0)" onclick="setUrl(&#39;privacy.php&#39;, window.g);">隐私政策</a> | © 2018+ Jan Biniok
+                </div>
+     </div>
+        <script>
+    window.requestAds = function(cookies) {
+        var cb = function(l) {
+            var a = '';
+            if (!l) {
+                if (l === false) {
+                    a = a + '&acpt=1';
+                } else {
+                    a = a + '&fb=1';
+                }
+            };
+            if (!cookies) {
+                a = a + '&co=0';
+            }
+            if (window.loadEnd) {
+                a = a + '&tdc=' + (window.loadEnd - window.loadStart);
+            }
+            if (window.loadAEnd) {
+                a = a + '&tad=' + (window.loadAEnd - window.loadStart);
+            }
+                        try {
+              var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+              var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+              a = a + '&sw=' + vw + '&sh=' + vh;
+            } catch (e) {};
+            try {
+              var x = new Date();
+              var tzoih = Math.round((-1 * x.getTimezoneOffset() / 60 + Number.EPSILON) * 100) / 100;
+              a = a + '&tzo=' + tzoih;
+            } catch (e) {};
+
+            var tag = function (url, onerr) {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = url + '?rand=awabc' + '&id=a09f2e278dda4213379702a2a0b9ed20&id=a10f2e278dda4213379702a2a0b9ed20' + a;
+                if (onerr) s.onerror = onerr;
+                (document.head || document.body).appendChild(s);
+            };
+            var u = window.location.href.indexOf('localhost') == -1 && window.location.href.indexOf('test2.tampermonkey.net') == -1 ? 'https://w.tampermonkey.net/s.js' : 'http://w.tampermonkey.net.local:7001/s.js';
+            tag(u, function() { tag('https://v.tampermonkey.net/s.js') });
+        };
+        if (window.ads) {
+            window.ads.addStatusListener(cb);
+        } else {
+            cb(true);
+        }
+    };
+
+          var __tcfapi_l = function(tcData, success) {
+          if (success && (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete')) {
+
+              /*
+                Check if Google has vendor consent and device access: Google Id is 755,
+
+                // https://support.google.com/adsense/answer/9804260?hl=en
+                purpose  1: Device access
+                purpose  2: Deliver advertisements
+                purpose  3: Personalization
+                purpose  4: select personalized ads
+                purpose  7: measure add performance
+                purpose  9: market research
+                purpose 10: develop and improve products
+
+                G personalized      1+2+3+4+7+9+10
+                G non-personalized  1+2+7+9+10
+              */
+              var purpose = function(p) { return (tcData.purpose.consents[p] || tcData.purpose.legitimateInterests[p]) };
+
+              var a = !tcData.gdprApplies || purpose(2);
+              var p = !tcData.gdprApplies || (purpose(3) && purpose(4));
+              var g = !tcData.gdprApplies || (tcData.vendor.consents[755] && purpose(1) && a && purpose(7) && purpose(9) && purpose(10));
+
+              if (g || a) {
+                  requestAds(g);
+
+                  if (g) {
+                      startG(!p);
+                  }
+              }
+              // startStats(true);
+          }
+      };
+      if (window.__tcfapi) {
+          __tcfapi('addEventListener', 2, __tcfapi_l);
+      } else {
+          __tcfapi_l({
+              eventStatus: 'useractioncomplete',
+              gdprApplies: false,
+              vendor: { consents: {} },
+              purpose: { consents: {}, legitimateInterests: { 2: true } }
+          }, true);
+      }
+        </script>
+          <div class="back-to-top" style="display: block;"><span class="clickable" title="Scroll to top">▲</span></div>
+      
+    
+
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Tampermonkey • 文档_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div></body></html>
