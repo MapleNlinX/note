@@ -1,7 +1,7 @@
 #CocosCreator #cocos2dx 
 # 版本
-- Cocos Creator v1.9
-- cocos2dx
+- Cocos Creator：1.9
+- cocos2dx-lua： 3.16
 
 ### 问题：
 - 在使用Cocos生成的按钮预制体时，`contentsize` 不会随着设置 `loadTextureNormal` 而变动，导致图像会发生变形。

@@ -1,3 +1,5 @@
+# 版本
+- cocos2dx-lua： 3.16
 # 重现
 - 将一个Button（或包含Button的）结点用`removeFromParent、parent:removeChildByName`方法从父节点中移除
 - 然后再用`addChild`添加到任意父节点（包括原父节点）
