@@ -6,9 +6,18 @@
 修改注册表
 - win+r -> regedit
 - 计算机\\HKEY_CURRENT_USER\\SOFTWARE\\TortoiseSVN\\History\\repoURLS 下的某个文件夹
-- 全部由url+数字的名称的文件夹就是，其中url0就是显示的第一个，通过修改这个可改变默认显示
+- 全部由url+数字的名称的文件夹就是，这个文件夹是这个仓库的UUID，其中url0就是显示的第一个，通过修改这个可改变默认显示
 ![](file/Pasted%20image%2020231017164939.png)
 
+## 获取仓库uuid
+```cmd
+-- 本地仓库目录下
+svn info --show-item=repos-uuid
+-- 远程命令
+svn info https://10.10.10.117/svn/cokutau-dev/game/ProjectC3/client
+-- 服务器端目录下
+svnlook uuid /path/to/your/local/repository
+```
 ## 在bat脚本操作
 
 ```bat
